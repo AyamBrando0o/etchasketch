@@ -2,18 +2,24 @@
     text-align: center;
 }
 
-#container{
+.button {
     margin: auto;
+    width: 10%;
+    position: relative;
+}
+
+#container{
+    margin: 20px auto;
     display: flex;
     flex-flow: row wrap;
     width: 500px ;
     height: 500px;
 }
 
-#box{
+.box{
     background-color: black;
 }
 
-#box.hovered {  
+.hovered {  
     background-color: white;
 }

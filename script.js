@@ -6,10 +6,13 @@ function creategrid(){
         box.style.width = "25%";
         box.style.height = "25%";
         container.appendChild(box);
-    }
+    };
+}
 
-    //document.getElementsByID("box").style.height = "50px";
-    //document.getElementsByID("box").style.width = "50px";
+document.onmouseover = function(e){
+    if (e.target.id == 'box'){
+        e.target.classList.add('hovered');
+    }
 }
 
 creategrid();

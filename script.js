@@ -19,13 +19,18 @@ function getgridsize(){
     creategrid(size);
 }
 
-document.onmouseover = function(e){
-    red = Math.floor(Math.random() * 256);
-    blue = Math.floor(Math.random() * 256);
-    green = Math.floor(Math.random() * 256);
-    if (e.target.className == 'box'){
-        e.target.style.backgroundColor = `rgb(${red}, ${blue}, ${green})`;
-    }
+function addclass(target){
+    buttons = document.getElementsByClassName("button");
+    /*for (i=0; i<buttons.length; i++){
+        console.log(buttons[i]);
+        buttons[i].classList.remove("active");
+    }*/
+    document.getElementById("rainbow").classList.remove("active");
+    document.getElementById("color").classList.remove("active");
+    document.getElementById("greyscale").classList.remove("active");
+    document.getElementById("eraser").classList.remove("active");
+    target.classList.add("active");
+
 }
 
 function button(){
@@ -37,5 +42,14 @@ function button(){
     }
 }
 
-
 getgridsize();
+
+document.onmouseover = function(e){
+
+    red = Math.floor(Math.random() * 256);
+    blue = Math.floor(Math.random() * 256);
+    green = Math.floor(Math.random() * 256);
+    if (e.target.className == 'box'){
+        e.target.style.backgroundColor = `rgb(${red}, ${blue}, ${green})`;
+    }
+} 

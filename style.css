@@ -4,15 +4,12 @@
 
 .button {
     margin: auto;
-    width: 10%;
     position: relative;
 }
 
-
-
-
 #navbar {
     display:flex;
+    justify-content: space-between;
     height: 50px;
     width: 500px;
     margin: auto;
@@ -28,8 +25,5 @@
 
 .box{
     background-color: black;
-}
-
-.hovered {  
-    background-color: white;
+    
 }

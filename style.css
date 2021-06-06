@@ -1,0 +1,17 @@
+.title {
+    text-align: center;
+}
+
+#container{
+    margin: auto;
+    width: 500px ;
+    height: 500px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#box{
+    background-color: black;
+    /* width: 25%;
+    height: 25%; */
+}

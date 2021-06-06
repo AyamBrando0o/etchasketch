@@ -1,12 +1,22 @@
-function creategrid(){
+function creategrid(width){
     const container = document.querySelector('#container');
-    for (i=0; i<16; i++){
+    no_of_squares = width * width;
+    size = 100/width;
+    for (i=0; i<no_of_squares; i++){
         const box = document.createElement('div');
         box.classList.add('box');
-        box.style.width = "25%";
-        box.style.height = "25%";
+        box.style.width = size + "%";
+        box.style.height = size + "%";
         container.appendChild(box);
     };
+}
+
+function getgridsize(){
+    size = prompt("Enter size of desired square");
+    while (size>100 || size <0){
+        size = prompt("Enter size of desired square");
+    }
+    creategrid(size);
 }
 
 document.onmouseover = function(e){
@@ -25,5 +35,4 @@ function button(){
 }
 
 
-
-creategrid();
+getgridsize();

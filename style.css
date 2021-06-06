@@ -8,6 +8,16 @@
     position: relative;
 }
 
+
+
+
+#navbar {
+    display:flex;
+    height: 50px;
+    width: 500px;
+    margin: auto;
+}
+
 #container{
     margin: 20px auto;
     display: flex;

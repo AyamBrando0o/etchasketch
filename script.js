@@ -20,8 +20,11 @@ function getgridsize(){
 }
 
 document.onmouseover = function(e){
+    red = Math.floor(Math.random() * 256);
+    blue = Math.floor(Math.random() * 256);
+    green = Math.floor(Math.random() * 256);
     if (e.target.className == 'box'){
-        e.target.classList.add('hovered');
+        e.target.style.backgroundColor = `rgb(${red}, ${blue}, ${green})`;
     }
 }
 
@@ -29,7 +32,7 @@ function button(){
     elements = document.getElementsByClassName('box');
 
     for (i = 0, length = elements.length; i < length; i++) {
-        elements[i].classList.remove('hovered');         
+        elements[i].style.backgroundColor = 'black';         
         
     }
 }

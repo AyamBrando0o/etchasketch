@@ -1,12 +1,12 @@
 function creategrid(width){
     const container = document.querySelector('#container');
     no_of_squares = width * width;
-    size = 100/width;
+    size = (500 - width * 2 )/width;
     for (i=0; i<no_of_squares; i++){
         const box = document.createElement('div');
         box.classList.add('box');
-        box.style.width = size + "%";
-        box.style.height = size + "%";
+        box.style.width = size + "px";
+        box.style.height = size + "px";
         container.appendChild(box);
     };
 }
@@ -29,7 +29,7 @@ function restart(){
 function addclass(target){
     buttons = document.getElementsByClassName("button");
     for (i=0; i<buttons.length; i++){
-        buttons[i].children[0].classList.remove('active');
+        buttons[i].classList.remove('active');
     }
     target.classList.add("active");
 }
@@ -37,30 +37,21 @@ function addclass(target){
 function getOption(){
     buttons = document.getElementsByClassName("button");
     for (i=1; i<buttons.length; i++){
-        if(buttons[i].children[0].classList.contains("active")){
-            return (buttons[i].children[0].id);
+        if(buttons[i].classList.contains("active")){
+            return (buttons[i].id);
         }
     }
 }
-
-getgridsize();
-document.onmouseover = function(e){
-    switch(getOption()){
-        case "rainbow":
-            red = Math.floor(Math.random() * 256);
+function rainbow(e){
+    red = Math.floor(Math.random() * 256);
             blue = Math.floor(Math.random() * 256);
             green = Math.floor(Math.random() * 256);
             if (e.target.className == 'box'){
                 e.target.style.backgroundColor = `rgb(${red}, ${blue}, ${green})`;
             };
-            break;
-
-        case "color":
-
-            break;
-
-        case "greyscale":
-            white = "rgb(255, 255, 255)";
+}
+function greyscale(e){
+    white = "rgb(255, 255, 255)";
             bright_gray = "rgb(238, 238, 238)";
             chinese_silver = "rgb(204, 204, 204)";
             spanish_gray = "rgb(153, 153, 153)";
@@ -91,12 +82,36 @@ document.onmouseover = function(e){
                 }
                 else e.target.style.backgroundColor = white;
         };
+
+}
+
+function eraser(e){
+    if (e.target.className == 'box'){
+        e.target.style.backgroundColor = "white";
+    };
+}
+
+function color(e){
+
+}
+
+getgridsize();
+document.onmouseover = function(e){
+    switch(getOption()){
+        case "rainbow":
+            rainbow(e);
+            break;
+
+        case "color":
+
+            break;
+
+        case "greyscale":
+            greyscale(e);
             break;
 
         case "eraser":
-            if (e.target.className == 'box'){
-                e.target.style.backgroundColor = "white";
-            };
+            eraser(e);
             break;
 
     }

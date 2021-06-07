@@ -5,6 +5,7 @@
 .button {
     margin: auto;
     position: relative;
+    height: 50px;
 }
 
 #navbar {
@@ -26,5 +27,6 @@
 
 .box{
     background-color:white;
+    border: 0.5px solid lightgrey;
     
 }

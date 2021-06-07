@@ -7,21 +7,19 @@
     <body>
         <h1 class = "title">Etch a sketch</h1>
         <div id = "navbar">
-            <div class="button">
-                <button id = "clear" onclick="restart()">Clear</button>
-            </div>
-            <div class = "button">
-                <button id="rainbow"  onclick="addclass(this)">Rainbow</button>
-            </div>
-            <div class = "button">
-                <button id ="color"  onclick="addclass(this)">Color</button>
-            </div>
-            <div class = "button">
-                <button id="greyscale" onclick="addclass(this)">Grey-Scale</button>
-            </div>
-            <div class = "button">
-                <button id = "eraser" onclick="addclass(this)">Eraser</button>
-            </div>
+                <button class="button" id = "clear" onclick="restart()">Clear</button>
+          
+                <button class="button" id="rainbow"  onclick="addclass(this)">Rainbow</button>
+            
+                <button class="button" id ="color" onclick="addclass(this)">
+                    Color: <br/>
+                    <input type="color" value="000000"></input>
+                </button>
+            
+                <button class="button" id="greyscale" onclick="addclass(this)">Grey-Scale</button>
+            
+                <button class="button" id = "eraser" onclick="addclass(this)">Eraser</button>
+            
         </div>
         
         <div id = "container"></div>

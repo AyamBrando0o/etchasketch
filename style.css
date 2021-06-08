@@ -9,14 +9,21 @@
     width: 80px;
 }
 
+h2{
+    margin: auto;
+}
+
 .slidecontainer {
     width: 500px; /* Width of the outside container */
     margin: auto;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
   }
 
 .slider {
   -webkit-appearance: none;
-  width: 100%;
+  width: 90%;
   height: 25px;
   background: #d3d3d3;
   outline: none;
@@ -53,7 +60,5 @@
 }
 
 .box{
-    background-color:white;
-    border: 0.5px solid lightgrey;
-    
+    background-color:white;    
 }

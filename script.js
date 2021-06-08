@@ -5,34 +5,29 @@ slider = document.getElementById("myRange");
 function creategrid(width){
     const container = document.querySelector('#container');
     no_of_squares = width * width;
-    size = (500 - width * 2 )/width;
+    size = 100/width;
     for (i=0; i<no_of_squares; i++){
         const box = document.createElement('div');
         box.classList.add('box');
-        box.style.width = size + "px";
-        box.style.height = size + "px";
+        box.style.width = size + "%";
+        box.style.height = size + "%";
         container.appendChild(box);
     };
 }
 
-/* function getgridsize(){
-    slider = document.getElementById("myRange");
+function getgridsize(){
     size = prompt("Enter size of desired square");
     while (size>100 || size <0){
         size = prompt("Enter size of desired square");
     } 
-    creategrid(slider);
-} */
+    creategrid(size);
+} 
 
 function pixelSize(){
     let gridPixels = container.querySelectorAll('div');
     gridPixels.forEach(gridPixel => gridPixel.remove());
+    document.querySelector('h2').innerHTML = slider.value;
     creategrid(slider.value);
-}
-
-
-slider.oninput = function(){
-    no_of_squares = this.value;
 }
 
 function restart(){
@@ -119,8 +114,8 @@ function usercolorchosen(e){
     colorchosen = e.target.value;
 }
 
-//getgridsize();
-slider.addEventListener('mouseup', pixelSize);
+getgridsize();
+//slider.addEventListener('mouseup', pixelSize);
 document.onmouseover = function(e){
     switch(getOption()){
         case "rainbow":

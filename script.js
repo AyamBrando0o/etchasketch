@@ -1,4 +1,6 @@
 colorchosen = 'black';
+numberofsquares = 1;
+slider = document.getElementById("myRange");
 
 function creategrid(width){
     const container = document.querySelector('#container');
@@ -13,12 +15,24 @@ function creategrid(width){
     };
 }
 
-function getgridsize(){
+/* function getgridsize(){
+    slider = document.getElementById("myRange");
     size = prompt("Enter size of desired square");
     while (size>100 || size <0){
         size = prompt("Enter size of desired square");
-    }
-    creategrid(size);
+    } 
+    creategrid(slider);
+} */
+
+function pixelSize(){
+    let gridPixels = container.querySelectorAll('div');
+    gridPixels.forEach(gridPixel => gridPixel.remove());
+    creategrid(slider.value);
+}
+
+
+slider.oninput = function(){
+    no_of_squares = this.value;
 }
 
 function restart(){
@@ -95,7 +109,7 @@ function eraser(e){
 function color(e){
     const colorpicker = document.getElementById("choosecolor");
     colorpicker.addEventListener("input", usercolorchosen, false);
-    //colorpicker.addEventListener("change", usercolorchosen, false);
+    colorpicker.addEventListener("change", usercolorchosen, false);
     if (e.target.className == 'box'){
         e.target.style.backgroundColor = colorchosen;
     };
@@ -105,7 +119,8 @@ function usercolorchosen(e){
     colorchosen = e.target.value;
 }
 
-getgridsize();
+//getgridsize();
+slider.addEventListener('mouseup', pixelSize);
 document.onmouseover = function(e){
     switch(getOption()){
         case "rainbow":

@@ -1,3 +1,5 @@
+colorchosen = 'black';
+
 function creategrid(width){
     const container = document.querySelector('#container');
     no_of_squares = width * width;
@@ -59,7 +61,6 @@ function greyscale(e){
             dark_charcoal = "rgb(51, 51, 51)";
             black = "rgb(0, 0, 0)" ;
             if (e.target.className == 'box'){
-                console.log(getComputedStyle(e.target).backgroundColor);
                 if(getComputedStyle(e.target).backgroundColor == white){
                     e.target.style.backgroundColor = bright_gray;
                 }
@@ -92,7 +93,16 @@ function eraser(e){
 }
 
 function color(e){
+    const colorpicker = document.getElementById("choosecolor");
+    colorpicker.addEventListener("input", usercolorchosen, false);
+    //colorpicker.addEventListener("change", usercolorchosen, false);
+    if (e.target.className == 'box'){
+        e.target.style.backgroundColor = colorchosen;
+    };
+}
 
+function usercolorchosen(e){
+    colorchosen = e.target.value;
 }
 
 getgridsize();
@@ -103,7 +113,7 @@ document.onmouseover = function(e){
             break;
 
         case "color":
-
+            color(e);
             break;
 
         case "greyscale":

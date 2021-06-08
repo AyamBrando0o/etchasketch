@@ -5,14 +5,16 @@
 .button {
     margin: auto;
     position: relative;
-    height: 50px;
+    height: 30px;
+    width: 80px;
 }
+
 
 #navbar {
     display:flex;
     justify-content: space-between;
     height: 50px;
-    width: 500px;
+    width: 600px;
     margin: auto;
 }
 

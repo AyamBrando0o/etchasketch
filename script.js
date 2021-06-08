@@ -114,9 +114,7 @@ function usercolorchosen(e){
     colorchosen = e.target.value;
 }
 
-getgridsize();
-//slider.addEventListener('mouseup', pixelSize);
-document.onmouseover = function(e){
+function draw(e){
     switch(getOption()){
         case "rainbow":
             rainbow(e);
@@ -135,4 +133,29 @@ document.onmouseover = function(e){
             break;
 
     }
-} 
+}
+
+//getgridsize();
+creategrid(1);
+slider.addEventListener('mouseup', pixelSize);
+document.addEventListener('mouseover',draw);
+/* document.onmouseover = function(e){
+    switch(getOption()){
+        case "rainbow":
+            rainbow(e);
+            break;
+
+        case "color":
+            color(e);
+            break;
+
+        case "greyscale":
+            greyscale(e);
+            break;
+
+        case "eraser":
+            eraser(e);
+            break;
+
+    }
+} */

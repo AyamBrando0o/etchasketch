@@ -115,29 +115,48 @@ function usercolorchosen(e){
 }
 
 function draw(e){
-    switch(getOption()){
-        case "rainbow":
-            rainbow(e);
-            break;
+    if (document.getElementById('draw').classList.contains("on")){
+        switch(getOption()){
+            case "rainbow":
+                rainbow(e);
+                break;
 
-        case "color":
-            color(e);
-            break;
+            case "color":
+                color(e);
+                break;
 
-        case "greyscale":
-            greyscale(e);
-            break;
+            case "greyscale":
+                greyscale(e);
+                break;
 
-        case "eraser":
-            eraser(e);
-            break;
+            case "eraser":
+                eraser(e);
+                break;
 
+        }
+    }
+}
+
+function updatedrawstatus(e){
+    if (e.target.classList.contains("button") || e.target.classList.contains("slider")  ){
+        return;
+    }
+    else {
+        if (document.getElementById("draw").classList.contains("on")){
+            document.getElementById("draw").classList.remove("on");
+            document.getElementById("draw").innerHTML = "Stopped";
+        }
+        else{
+            document.getElementById("draw").classList.add("on");
+            document.getElementById("draw").innerHTML = "Drawing...";
+        }
     }
 }
 
 //getgridsize();
 creategrid(1);
 slider.addEventListener('mouseup', pixelSize);
+document.addEventListener('click', updatedrawstatus);
 document.addEventListener('mouseover',draw);
 /* document.onmouseover = function(e){
     switch(getOption()){

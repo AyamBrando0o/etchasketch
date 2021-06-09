@@ -21,6 +21,11 @@ h2{
     margin: auto;
 }
 
+#draw{
+    text-align: center;
+    width: 500px;
+}
+
 .slidecontainer {
     width: 500px; /* Width of the outside container */
     margin: auto;
